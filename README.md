@@ -151,3 +151,31 @@ Tasks failed: 1
 Success rate: 93.3%
 ```
 
+## ⚙️ Configuration Options
+
+| Parameter | Default | Location | Description |
+|:----------|--------:|:---------|:------------|
+| `numWorkers` | `4` | `DataProcessor.java` | Number of concurrent worker threads |
+| `numTasks` | `15` | `DataProcessor.java` | Total number of tasks to process |
+| `Error Rate` | `10%` | `Worker.java` | Simulated failure rate for testing |
+| `Delay Range` | `100-500ms` | `Worker.java` | Processing time simulation range |
+| `Output File` | `results.txt` | `DataProcessor.java` | File path for result storage |
+| `Shutdown Timeout` | `30s` | `DataProcessor.java` | Graceful shutdown timeout |
+
+## Customizing Behavior
+#### Change Error Rate
+In Worker.java, modify:
+
+```java
+// Change 10 to desired percentage (e.g., 30 for 30% error rate)
+if (random.nextInt(100) < 10) {  // 10% error rate
+    throw new RuntimeException("Simulated processing error");
+}
+```
+#### Change Processing Speed
+In Worker.java, modify:
+
+```java
+// Change delay range (currently 100-500ms)
+int delay = 100 + random.nextInt(400);  // Min: 100ms, Max: 500ms
+```
