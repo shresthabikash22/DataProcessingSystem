@@ -42,7 +42,7 @@ javaapp/
 - **Java Version**: Java 8 or higher
 - **Memory**: Minimum 256MB RAM
 
-### Java Installation & Setup
+### Java Setup & running
 
 #### 1. Verify Java Installation
 ```bash
@@ -178,4 +178,144 @@ In Worker.java, modify:
 ```java
 // Change delay range (currently 100-500ms)
 int delay = 100 + random.nextInt(400);  // Min: 100ms, Max: 500ms
+```
+---
+
+## Go Implementation
+### Go Project Structure
+```
+goapp/
+├── main.go          
+├── task.go           
+├── worker.go         
+├── queue.go         
+├── resultstore.go  
+├── logger.go         
+├── go.mod            
+└── run.sh            
+```
+### Go Requirements
+### Requirement	Version
+- **Go Version**:	1.16 or higher
+- **Memory**:	Minimum 128MB
+
+### Go Setup & Running
+### 1. Navigate to Go Directory
+```bash
+cd goapp
+```
+### 2. Initialize Go Module
+```bash
+go mod init dataprocessor
+```
+### 3. Run the Application
+```
+go run *.go
+```
+### Go Sample Output
+```
+$ go run *.go
+2026-04-08 23:34:29.899 [INFO] Worker-1 started
+2026-04-08 23:34:29.899 [INFO] Worker-2 started
+2026-04-08 23:34:29.899 [INFO] Worker-3 started
+2026-04-08 23:34:29.899 [INFO] Worker-4 started
+2026-04-08 23:34:29.899 [INFO] Starting Data Processing System with 4 workers
+2026-04-08 23:34:29.899 [INFO] Adding 15 tasks to queue
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899551866
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899570543
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899575341
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899580674
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899583835
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899586969
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899589948
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899592919
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899596015
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899599016
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899601976
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899604927
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899607860
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899610808
+2026-04-08 23:34:29.899 [INFO] Task added to queue: task-1775709269899614026
+2026-04-08 23:34:30.141 [INFO] Result stored for task: task-1775709269899570543
+2026-04-08 23:34:30.141 [INFO] Worker-2 completed task task-1775709269899570543 (Processed: 1)
+2026-04-08 23:34:30.172 [INFO] Result stored for task: task-1775709269899551866
+2026-04-08 23:34:30.172 [INFO] Worker-1 completed task task-1775709269899551866 (Processed: 1)
+2026-04-08 23:34:30.260 [INFO] Result stored for task: task-1775709269899575341
+2026-04-08 23:34:30.260 [INFO] Worker-3 completed task task-1775709269899575341 (Processed: 1)
+2026-04-08 23:34:30.381 [INFO] Result stored for task: task-1775709269899580674
+2026-04-08 23:34:30.381 [INFO] Worker-4 completed task task-1775709269899580674 (Processed: 1)
+2026-04-08 23:34:30.451 [INFO] Result stored for task: task-1775709269899586969
+2026-04-08 23:34:30.451 [INFO] Worker-1 completed task task-1775709269899586969 (Processed: 2)
+2026-04-08 23:34:30.505 [INFO] Result stored for task: task-1775709269899583835
+2026-04-08 23:34:30.505 [INFO] Worker-2 completed task task-1775709269899583835 (Processed: 2)
+2026-04-08 23:34:30.590 [INFO] Result stored for task: task-1775709269899589948
+2026-04-08 23:34:30.590 [INFO] Worker-3 completed task task-1775709269899589948 (Processed: 2)
+2026-04-08 23:34:30.628 [INFO] Result stored for task: task-1775709269899596015
+2026-04-08 23:34:30.628 [INFO] Worker-1 completed task task-1775709269899596015 (Processed: 3)
+2026-04-08 23:34:30.812 [INFO] Result stored for task: task-1775709269899601976
+2026-04-08 23:34:30.812 [INFO] Worker-3 completed task task-1775709269899601976 (Processed: 3)
+2026-04-08 23:34:30.869 [INFO] Result stored for task: task-1775709269899604927
+2026-04-08 23:34:30.869 [INFO] Worker-1 completed task task-1775709269899604927 (Processed: 4)
+2026-04-08 23:34:30.874 [INFO] Result stored for task: task-1775709269899592919
+2026-04-08 23:34:30.874 [INFO] Worker-4 completed task task-1775709269899592919 (Processed: 2)
+2026-04-08 23:34:30.933 [INFO] Result stored for task: task-1775709269899607860
+2026-04-08 23:34:30.933 [INFO] Worker-3 completed task task-1775709269899607860 (Processed: 4)
+2026-04-08 23:34:30.960 [INFO] Result stored for task: task-1775709269899599016
+2026-04-08 23:34:30.960 [INFO] Worker-2 completed task task-1775709269899599016 (Processed: 3)
+2026-04-08 23:34:31.281 [INFO] Result stored for task: task-1775709269899610808
+2026-04-08 23:34:31.281 [INFO] Worker-1 completed task task-1775709269899610808 (Processed: 5)
+2026-04-08 23:34:31.370 [INFO] Result stored for task: task-1775709269899614026
+2026-04-08 23:34:31.370 [INFO] Worker-4 completed task task-1775709269899614026 (Processed: 3)
+^C2026-04-08 23:34:46.250 [INFO] Initiating system shutdown...
+2026-04-08 23:34:46.250 [INFO] Worker-4 received shutdown signal
+2026-04-08 23:34:46.250 [INFO] Worker-4 finished. Total tasks processed: 3
+2026-04-08 23:34:46.250 [INFO] Worker-1 received shutdown signal
+2026-04-08 23:34:46.250 [INFO] Worker-1 finished. Total tasks processed: 5
+2026-04-08 23:34:46.250 [INFO] Worker-2 received shutdown signal
+2026-04-08 23:34:46.250 [INFO] Worker-2 finished. Total tasks processed: 3
+2026-04-08 23:34:46.250 [INFO] Worker-3 received shutdown signal
+2026-04-08 23:34:46.250 [INFO] Worker-3 finished. Total tasks processed: 4
+2026-04-08 23:34:46.250 [INFO] All workers finished gracefully
+2026-04-08 23:34:46.250 [INFO] Results saved to file: processing_results.txt
+
+=== PROCESSING RESULTS ===
+[2026-04-08T23:34:30.141106257-05:00] Worker: Worker-2, Task ID: task-1775709269899570543, Result: PROCESSED_Data-2
+[2026-04-08T23:34:30.172166027-05:00] Worker: Worker-1, Task ID: task-1775709269899551866, Result: PROCESSED_Data-1
+[2026-04-08T23:34:30.260155921-05:00] Worker: Worker-3, Task ID: task-1775709269899575341, Result: PROCESSED_Data-3
+[2026-04-08T23:34:30.381509236-05:00] Worker: Worker-4, Task ID: task-1775709269899580674, Result: PROCESSED_Data-4
+[2026-04-08T23:34:30.451757012-05:00] Worker: Worker-1, Task ID: task-1775709269899586969, Result: PROCESSED_Data-6
+[2026-04-08T23:34:30.505046246-05:00] Worker: Worker-2, Task ID: task-1775709269899583835, Result: PROCESSED_Data-5
+[2026-04-08T23:34:30.590376863-05:00] Worker: Worker-3, Task ID: task-1775709269899589948, Result: PROCESSED_Data-7
+[2026-04-08T23:34:30.628663693-05:00] Worker: Worker-1, Task ID: task-1775709269899596015, Result: PROCESSED_Data-9
+[2026-04-08T23:34:30.812110593-05:00] Worker: Worker-3, Task ID: task-1775709269899601976, Result: PROCESSED_Data-11
+[2026-04-08T23:34:30.869425398-05:00] Worker: Worker-1, Task ID: task-1775709269899604927, Result: PROCESSED_Data-12
+[2026-04-08T23:34:30.874637888-05:00] Worker: Worker-4, Task ID: task-1775709269899592919, Result: PROCESSED_Data-8
+[2026-04-08T23:34:30.93303787-05:00] Worker: Worker-3, Task ID: task-1775709269899607860, Result: PROCESSED_Data-13
+[2026-04-08T23:34:30.960340421-05:00] Worker: Worker-2, Task ID: task-1775709269899599016, Result: PROCESSED_Data-10
+[2026-04-08T23:34:31.281834671-05:00] Worker: Worker-1, Task ID: task-1775709269899610808, Result: PROCESSED_Data-14
+[2026-04-08T23:34:31.3701481-05:00] Worker: Worker-4, Task ID: task-1775709269899614026, Result: PROCESSED_Data-15
+Total tasks processed: 15
+
+=== PROCESSING SUMMARY ===
+Tasks created: 15
+Tasks succeeded: 15
+Tasks failed: 0
+Success rate: 100.0%
+```
+### Customizing Go Behavior
+### Change Error Rate
+In worker.go, modify:
+
+``` go
+// Change 10 to desired percentage (e.g., 30 for 30% error rate)
+if rand.Intn(100) < 10 {  // 10% error rate
+    return "", fmtError("simulated processing error")
+}
+```
+### Change Processing Speed
+In worker.go, modify:
+
+```go
+// Change delay range (currently 100-500ms)
+delay := time.Duration(100+rand.Intn(400)) * time.Millisecond
 ```
